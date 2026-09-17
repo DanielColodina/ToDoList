@@ -4,6 +4,7 @@ package com.example.todolistDois.controller;
 import com.example.todolistDois.model.Lista;
 import com.example.todolistDois.repository.ListaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,13 @@ public class ListaController {
     public ResponseEntity<Lista> procuraID(@PathVariable Long id) {
         Optional<Lista> lista = listaRepository.findById(id);
         return lista.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @PostMapping
+    public ResponseEntity<Lista> AdicionarId(@RequestBody Lista lista) {
+        Lista listasalva = listaRepository.save(lista);
+        return ResponseEntity.status(HttpStatus.CREATED).body(listasalva);
+
     }
 
     @PutMapping("/{id}")
@@ -55,4 +63,3 @@ public class ListaController {
         }
     }
 }
-
