@@ -1,12 +1,13 @@
-package com.example.todolistDois.controller;
+package com.example.todolist.todolistDois.controller;
 
 
-import com.example.todolistDois.model.Lista;
-import com.example.todolistDois.repository.ListaRepository;
+import com.example.todolist.todolistDois.model.Lista;
+import com.example.todolist.todolistDois.repository.ListaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 import java.util.Optional;

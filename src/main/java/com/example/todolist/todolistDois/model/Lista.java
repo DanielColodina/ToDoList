@@ -1,4 +1,4 @@
-package com.example.todolistDois.model;
+package com.example.todolist.todolistDois.model;
 
 import jakarta.persistence.*;
 
