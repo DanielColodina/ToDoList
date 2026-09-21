@@ -21,5 +21,7 @@ public class Produto {
 
 class nomeProduto {
 
+    ArrayList<String> nomesProduto = new ArrayList<>();
+
 
 }
