@@ -5,13 +5,13 @@ import com.example.freeCode.Supermecado.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProdutoreService {
 
     @Autowired
     private ProdutoRepository produtoRepository;
-
-
     //Crie um contstrutor onde os parametros serão da Classe Produto
     public Produto cadastrar(String nome, Integer quantidade, double valor) {
 
@@ -21,9 +21,11 @@ public class ProdutoreService {
         produto.setQuantidade(quantidade);
         produto.setValor(valor);
 
-
         return produtoRepository.save(produto);
+    }
 
+    public List<Produto> listartodos() {
+        return produtoRepository.findAll();
     }
 }
 
