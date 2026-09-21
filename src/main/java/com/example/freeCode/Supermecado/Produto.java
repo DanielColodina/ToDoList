@@ -1,23 +1,10 @@
-package com.example.freeCode;
+package com.example.freeCode.Supermecado;
 
 
-import lombok.*;
+import com.example.freeCode.Supermecado.model.Produto;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-public class Produto {
-
-
-    private String nome;
-    private int quantidade;
-    private double valor;
-
-}
 
 class DadosEntrada{
     Scanner scanner = new Scanner(System.in);
