@@ -19,9 +19,34 @@ public class Produto {
 
 }
 
+class DadosEntrada{
+    Scanner scanner = new Scanner(System.in);
+
+}
+
 class nomeProduto {
 
-    ArrayList<String> nomesProduto = new ArrayList<>();
+    private ArrayList<Produto> nomesProduto = new ArrayList<>();
 
+    public String ProdutoComNome(Scanner scanner){
+
+
+        System.out.println("Qual o nome do produto ?");
+        String nome = scanner.nextLine();
+
+
+
+        if (nomesProduto.contains(nome)) {
+            return "Esse produto já existe";
+        } else {
+
+            Produto produto = new Produto();
+
+            produto.setNome(nome);
+            nomesProduto.add(produto);
+            return "Produto cadastrado";
+
+        }
+    }
 
 }
