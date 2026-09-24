@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermercado Inteligente</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="cabecalho">
+    <div>
+        <span class="etiqueta">Java + Spring Boot + Ollama</span>
+        <h1>Supermercado Inteligente</h1>
+        <p>Cadastre produtos e controle o estoque usando linguagem natural.</p>
+    </div>
+    <div class="status-servico">
+        <span class="status-ponto"></span>
+        API conectada
+    </div>
+</header>
+
+<main>
+    <section class="painel assistente-painel">
+        <div class="titulo-secao">
+            <div>
+                <span class="numero">01</span>
+                <h2>Assistente local</h2>
+            </div>
+            <span class="modelo">llama3 · Ollama</span>
+        </div>
+
+        <form id="assistente-form">
+            <label for="mensagem">O que deseja fazer?</label>
+            <div class="campo-acao">
+                <input
+                        id="mensagem"
+                        name="mensagem"
+                        type="text"
+                        placeholder="Ex.: adicione 15 unidades de feijão"
+                        autocomplete="off"
+                        required>
+                <button id="assistente-botao" type="submit">Enviar</button>
+            </div>
+        </form>
+
+        <div class="sugestoes" aria-label="Sugestões de comandos">
+            <button type="button" data-mensagem="liste todos os produtos">Listar produtos</button>
+            <button type="button" data-mensagem="quais produtos estão acabando?">Estoque baixo</button>
+            <button type="button" data-mensagem="quantos arroz ainda temos?">Consultar arroz</button>
+        </div>
+
+        <div id="assistente-status" class="mensagem-status" hidden></div>
+        <pre id="assistente-resposta" class="resposta-assistente" hidden></pre>
+    </section>
+
+    <section class="painel cadastro-painel">
+        <div class="titulo-secao">
+            <div>
+                <span class="numero">02</span>
+                <h2>Novo produto</h2>
+            </div>
+        </div>
+
+        <form id="produto-form" class="formulario-produto">
+            <label>
+                Nome
+                <input name="nome" type="text" placeholder="Arroz" required>
+            </label>
+            <label>
+                Quantidade
+                <input name="quantidade" type="number" min="0" step="1" placeholder="20" required>
+            </label>
+            <label>
+                Valor (R$)
+                <input name="valor" type="number" min="0" step="0.01" placeholder="25,00" required>
+            </label>
+            <button id="produto-botao" type="submit">Cadastrar produto</button>
+        </form>
+        <div id="produto-status" class="mensagem-status" hidden></div>
+    </section>
+
+    <section class="painel produtos-painel">
+        <div class="titulo-secao">
+            <div>
+                <span class="numero">03</span>
+                <h2>Estoque atual</h2>
+            </div>
+            <button id="atualizar-produtos" class="botao-secundario" type="button">Atualizar</button>
+        </div>
+
+        <div class="tabela-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+                </tr>
+                </thead>
+                <tbody id="produtos-corpo"></tbody>
+            </table>
+            <p id="produtos-vazio" class="estado-vazio" hidden>Nenhum produto cadastrado.</p>
+        </div>
+    </section>
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>

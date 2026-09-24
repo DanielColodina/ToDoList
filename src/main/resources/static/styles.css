@@ -1,0 +1,262 @@
+:root {
+    color-scheme: light;
+    --fundo: #f3f1e9;
+    --painel: #fffdf7;
+    --texto: #17231b;
+    --texto-suave: #68736b;
+    --verde: #176b46;
+    --verde-claro: #d9ecdf;
+    --borda: #d9ddd5;
+    --erro: #a43d35;
+    font-family: Inter, "Segoe UI", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--texto);
+    background: var(--fundo);
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: flex-end;
+    padding: 3.5rem max(5vw, 1.25rem) 2.5rem;
+    color: #fff;
+    background: linear-gradient(135deg, #123c2a, #176b46);
+}
+
+.cabecalho h1 {
+    margin: .55rem 0 .4rem;
+    font-size: clamp(2rem, 5vw, 4.25rem);
+    letter-spacing: -.055em;
+}
+
+.cabecalho p {
+    margin: 0;
+    color: #dbe9df;
+}
+
+.etiqueta,
+.modelo {
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.status-servico {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    white-space: nowrap;
+}
+
+.status-ponto {
+    width: .65rem;
+    height: .65rem;
+    border-radius: 50%;
+    background: #7df0a8;
+    box-shadow: 0 0 0 .25rem rgb(125 240 168 / 18%);
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 1.25rem;
+    width: min(1180px, calc(100% - 2rem));
+    margin: 2rem auto 4rem;
+}
+
+.painel {
+    padding: 1.5rem;
+    border: 1px solid var(--borda);
+    border-radius: 1rem;
+    background: var(--painel);
+    box-shadow: 0 1rem 3rem rgb(29 52 37 / 6%);
+}
+
+.produtos-painel {
+    grid-column: 1 / -1;
+}
+
+.titulo-secao,
+.titulo-secao > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .8rem;
+}
+
+.titulo-secao {
+    margin-bottom: 1.25rem;
+}
+
+.titulo-secao h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.numero {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    color: var(--verde);
+    background: var(--verde-claro);
+    font-weight: 800;
+    font-size: .75rem;
+}
+
+label {
+    display: grid;
+    gap: .45rem;
+    color: var(--texto-suave);
+    font-size: .84rem;
+    font-weight: 650;
+}
+
+input,
+button {
+    min-height: 2.85rem;
+    border-radius: .65rem;
+    font: inherit;
+}
+
+input {
+    width: 100%;
+    padding: .7rem .85rem;
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    background: #fff;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 0 .2rem rgb(23 107 70 / 12%);
+}
+
+button {
+    padding: .7rem 1rem;
+    color: #fff;
+    border: 0;
+    background: var(--verde);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: wait;
+    opacity: .55;
+}
+
+.campo-acao {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: .65rem;
+}
+
+.formulario-produto {
+    display: grid;
+    gap: .85rem;
+}
+
+.sugestoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-top: .8rem;
+}
+
+.sugestoes button,
+.botao-secundario {
+    min-height: 2rem;
+    padding: .35rem .7rem;
+    color: var(--verde);
+    border: 1px solid var(--borda);
+    background: transparent;
+    font-size: .78rem;
+}
+
+.mensagem-status {
+    margin-top: 1rem;
+    padding: .75rem .9rem;
+    border-radius: .6rem;
+    color: var(--verde);
+    background: var(--verde-claro);
+}
+
+.mensagem-status.processando {
+    color: #73550a;
+    background: #fff0bd;
+}
+
+.mensagem-status.erro {
+    color: var(--erro);
+    background: #fae3e0;
+}
+
+.resposta-assistente {
+    max-height: 18rem;
+    overflow: auto;
+    margin: .8rem 0 0;
+    padding: 1rem;
+    border-radius: .6rem;
+    color: #d8f4e2;
+    background: #13241a;
+    white-space: pre-wrap;
+}
+
+.tabela-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: .9rem .75rem;
+    border-bottom: 1px solid var(--borda);
+    text-align: left;
+}
+
+th {
+    color: var(--texto-suave);
+    font-size: .75rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+.estado-vazio {
+    color: var(--texto-suave);
+    text-align: center;
+}
+
+@media (max-width: 760px) {
+    .cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .produtos-painel {
+        grid-column: auto;
+    }
+
+    .campo-acao {
+        grid-template-columns: 1fr;
+    }
+}
